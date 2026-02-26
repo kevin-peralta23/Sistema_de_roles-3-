@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- Define el documento como HTML5 -->
+
+<html lang="es">
+<!-- Inicio del documento HTML -->
+
+<head>
+<title>Login</title>
+<!-- Título que aparece en la pestaña del navegador -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Importa Tailwind CSS para diseño moderno -->
+</head>
+
+<!-- Fondo oscuro y centrado vertical y horizontal -->
+<body class="bg-slate-900 flex items-center justify-center h-screen">
+
+<!-- Contenedor principal del login -->
+<div class="bg-white p-8 rounded-2xl shadow-xl w-80 text-center">
+    
+    <!-- Título -->
+    <h2 class="text-2xl font-bold mb-6">Iniciar sesión</h2>
+
+    <!-- Mostrar mensaje de error si existe -->
+    {% if error %}
+        <div class="bg-red-100 text-red-700 p-2 rounded mb-4 text-sm">
+            {{ error }}
+        </div>
+    {% endif %}
+
+    <!-- Formulario de inicio de sesión -->
+    <form method="post" class="space-y-3" autocomplete="off">
+        
+        <!-- Campo usuario -->
+        <input 
+            name="usuario" 
+            placeholder="Usuario"
+            class="w-full border p-2 rounded-lg"
+            required
+            minlength="3"
+            maxlength="30"
+            autocomplete="username">
+
+        <!-- Campo contraseña -->
+        <input 
+            type="password" 
+            name="password" 
+            placeholder="Contraseña"
+            class="w-full border p-2 rounded-lg"
+            required
+            minlength="6"
+            maxlength="50"
+            autocomplete="current-password">
+
+        <!-- Botón entrar -->
+        <button 
+            type="submit"
+            class="w-full bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition">
+            Entrar
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- Define el documento como HTML5 -->
+
+<html lang="es">
+<!-- Idioma del documento en español -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Permite usar caracteres especiales como ñ y acentos -->
+
+    <title>Usuario creado</title>
+    <!-- Título que aparece en la pestaña del navegador -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Importa Tailwind CSS para estilos modernos -->
+
+    <!-- Evita que el navegador guarde en caché esta página (A04 Seguridad) -->
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+</head>
+
+<!-- Fondo con degradado azul e índigo y centrado en pantalla -->
+<body class="bg-gradient-to-r from-blue-500 to-indigo-600 min-h-screen flex items-center justify-center">
+
+    <!-- Contenedor principal -->
+    <div class="bg-white shadow-2xl rounded-2xl p-10 w-[450px] text-center">
+
+        <!-- Título principal -->
+        <h1 class="text-3xl font-bold text-gray-800 mb-4">
+            Usuario creado correctamente
+        </h1>
+
+        <!-- Advertencia de seguridad -->
+        <div class="bg-red-100 border border-red-400 text-red-700 p-3 rounded-lg mb-5 text-sm">
+            ⚠ Esta contraseña se muestra únicamente una vez.
+            Compártala de forma segura y solicite al usuario que la cambie al iniciar sesión.
+        </div>
+
+        <!-- Contenedor de datos del usuario -->
+        <div class="bg-gray-100 rounded-lg p-4 mb-6 text-left">
+
+            <!-- Muestra el nombre de usuario creado -->
+            <p class="text-gray-700 mb-2">
+                <span class="font-semibold">Usuario:</span> {{ usuario }}
+            </p>
+
+            <!-- Muestra la contraseña generada automáticamente -->
+            <p class="text-gray-700">
+                <span class="font-semibold">Contraseña temporal:</span>
+                <span class="bg-yellow-300 px-2 py-1 rounded font-mono">
+                    {{ password }}
+                </span>
+            </p>
+
+        </div>
+
+        <!-- Botones -->
+        <div class="flex justify-between">
+
+            <!-- Volver al panel -->
+            <a href="/admin" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                Volver al panel
+            </a>
+
+            <!-- Cerrar sesión -->
+            <a href="/logout" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">
+                Cerrar sesión
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

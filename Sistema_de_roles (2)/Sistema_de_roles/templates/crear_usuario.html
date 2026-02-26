@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Crear usuario</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-900 flex items-center justify-center min-h-screen">
+
+<div class="bg-white p-8 rounded-xl w-96 shadow-xl">
+
+<h2 class="text-2xl font-bold mb-4 text-center">Crear usuario</h2>
+
+{% if error %}
+<div class="bg-red-100 text-red-700 p-2 rounded mb-3 text-sm">
+    {{ error }}
+</div>
+{% endif %}
+
+<form method="post" class="space-y-3" onsubmit="this.querySelector('button').disabled=true;">
+
+<!-- Nombre completo -->
+<input 
+name="nombre" 
+placeholder="Nombre completo"
+required
+maxlength="50"
+class="w-full border p-2 rounded-lg focus:ring-2 focus:ring-blue-500"
+autocomplete="off">
+
+<!-- Usuario/login -->
+<input 
+name="usuario" 
+placeholder="Usuario"
+required
+minlength="4"
+maxlength="20"
+pattern="^[a-zA-Z0-9_]+$"
+title="Solo letras, números y guiones bajos"
+class="w-full border p-2 rounded-lg focus:ring-2 focus:ring-blue-500"
+autocomplete="off">
+
+<!-- Roles controlados desde backend -->
+<select 
+name="rol" 
+required
+class="w-full border p-2 rounded-lg focus:ring-2 focus:ring-blue-500">
+
+{% for r in roles %}
+<option value="{{r}}">{{r}}</option>
+{% endfor %}
+
+</select>
+
+<button 
+type="submit"
+class="bg-blue-600 text-white w-full p-2 rounded-lg hover:bg-blue-700 transition">
+Crear usuario
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

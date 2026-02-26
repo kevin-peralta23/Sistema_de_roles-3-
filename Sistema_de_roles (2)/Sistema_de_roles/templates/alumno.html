@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- Define el documento como HTML5 -->
+
+<html lang="es">
+<!-- Idioma del documento en español -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Permite usar caracteres especiales como ñ y acentos -->
+
+    <title>Panel Alumno</title>
+    <!-- Título que aparece en la pestaña del navegador -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Importa Tailwind CSS para diseño moderno -->
+</head>
+
+<!-- Fondo con degradado morado-rosa y altura completa -->
+<body class="bg-gradient-to-r from-purple-600 to-pink-600 min-h-screen">
+
+    <!-- BARRA DE NAVEGACIÓN SUPERIOR -->
+    <nav class="bg-white shadow-lg p-4 flex justify-between">
+        <!-- Barra blanca con sombra -->
+
+        <h1 class="font-bold text-lg">Panel Alumno</h1>
+        <!-- Título del panel -->
+
+        <a href="/logout" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">
+            Cerrar sesión
+        </a>
+        <!-- Botón para cerrar sesión y regresar al login -->
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="flex justify-center mt-10">
+        <!-- Centra el contenido en pantalla -->
+
+        <div class="bg-white p-8 rounded-2xl shadow-xl w-96 text-center">
+        <!-- Tarjeta principal blanca con bordes redondeados -->
+
+            <!-- Mensaje de bienvenida -->
+            <h2 class="text-2xl font-bold mb-4">
+                Bienvenido {{ session.usuario }}
+            </h2>
+            <!-- Muestra el usuario que inició sesión -->
+
+            <!-- Muestra el rol -->
+            <p class="text-gray-600 mb-6">
+                Rol: <b>{{ session.rol }}</b>
+            </p>
+
+            <!-- BOTONES DEL MENÚ -->
+            <div class="space-y-3">
+            <!-- Espacio entre botones -->
+
+                <!-- Botón ver materias -->
+                <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">
+                    Ver materias
+                </button>
+                <!-- Podría mostrar las materias del alumno -->
+
+                <!-- Botón calificaciones -->
+                <button class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600">
+                    Calificaciones
+                </button>
+                <!-- Podría mostrar calificaciones -->
+
+                <!-- Botón horario -->
+                <button class="w-full bg-purple-500 text-white py-2 rounded-lg hover:bg-purple-600">
+                    Mi horario
+                </button>
+                <!-- Podría mostrar el horario del alumno -->
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- Define el documento como HTML5 -->
+
+<html lang="es">
+<!-- Idioma del documento: español -->
+
+<head>
+<meta charset="UTF-8">
+<!-- Permite usar caracteres especiales como ñ y acentos -->
+
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="Referrer-Policy" content="no-referrer">
+
+<title>Administrador</title>
+<!-- Título de la pestaña del navegador -->
+
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Importa Tailwind CSS para diseño moderno -->
+</head>
+
+<!-- Fondo azul y altura mínima de pantalla completa -->
+<body class="bg-blue-600 min-h-screen">
+
+<!-- Encabezado del panel -->
+<div class="text-center text-white pt-10">
+    <h1 class="text-4xl font-bold">Panel Administrador</h1>
+
+    <p class="mb-2">Bienvenido {{session.usuario}}</p>
+
+    <!-- Indicador visual de acceso restringido -->
+    <p class="text-sm bg-blue-800 inline-block px-4 py-1 rounded-lg mt-2">
+        Acceso restringido solo a Administradores
+    </p>
+</div>
+
+<!-- Botones del panel -->
+<div class="flex justify-center gap-6 mt-10 flex-wrap">
+
+<!-- Botón crear usuario -->
+<a href="/crear_usuario" 
+class="bg-white text-blue-600 px-6 py-3 rounded-xl font-bold shadow-lg hover:bg-gray-200">
+    Crear Usuario
+</a>
+
+<!-- Botón crear rol -->
+<a href="/crear_rol" 
+class="bg-yellow-400 text-black px-6 py-3 rounded-xl font-bold shadow hover:bg-yellow-500">
+    Crear Rol
+</a>
+
+<!-- Botón ver usuarios -->
+<button onclick="mostrar()" 
+class="bg-indigo-500 text-white px-6 py-3 rounded-xl font-bold shadow-lg hover:bg-indigo-600">
+    Ver Usuarios Registrados
+</button>
+
+<!-- Botón cerrar sesión -->
+<a href="/logout" 
+class="bg-red-500 text-white px-6 py-3 rounded-xl font-bold shadow-lg hover:bg-red-600">
+    Cerrar sesión
+</a>
+
+</div>
+
+<!-- Tabla de usuarios -->
+<div id="tabla" class="hidden mt-10 flex justify-center">
+
+<div class="bg-white p-6 rounded-xl shadow-xl w-2/3">
+
+<h2 class="text-2xl font-bold mb-4 text-center text-gray-800">
+    Usuarios registrados
+</h2>
+
+<p class="text-sm text-red-600 text-center mb-4">
+    Información sensible. Uso exclusivo del administrador.
+</p>
+
+<table class="w-full text-center border border-gray-300">
+
+<tr class="bg-blue-500 text-white">
+    <th class="p-2">Usuario</th>
+    <th class="p-2">Rol</th>
+</tr>
+
+{% for u in usuarios %}
+<tr class="border border-gray-300 bg-gray-100 hover:bg-gray-200">
+
+<td class="p-2 text-gray-800 font-medium">
+    {{ u.usuario | e }}
+</td>
+
+<td class="p-2 text-gray-700">
+    {{ u.rol | e }}
+</td>
+
+</tr>
+{% endfor %}
+
+</table>
+</div>
+</div>
+
+<!-- Script para mostrar/ocultar tabla -->
+<script>
+function mostrar(){
+    document.getElementById("tabla").classList.toggle("hidden");
+}
+</script>
+
+</body>
+</html>

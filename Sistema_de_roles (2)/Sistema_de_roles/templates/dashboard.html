@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- Define el documento como HTML5 -->
+
+<html>
+<!-- Inicio del documento HTML -->
+
+<head>
+<title>Panel</title>
+<!-- Título que aparece en la pestaña del navegador -->
+
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Importa Tailwind CSS para estilos modernos -->
+</head>
+
+<!-- Fondo oscuro, texto blanco y padding general -->
+<body class="bg-slate-900 text-white p-10">
+
+<!-- Título de bienvenida -->
+<h1 class="text-3xl font-bold">Bienvenido {{usuario}}</h1>
+<!-- {{usuario}} se recibe desde Flask y muestra el nombre del usuario -->
+
+<!-- Muestra el rol del usuario -->
+<p class="mb-6">Rol: {{rol}}</p>
+<!-- {{rol}} se recibe desde Flask -->
+
+<!-- Contenedor de botones -->
+<div class="space-x-4">
+<!-- space-x-4 agrega espacio horizontal entre botones -->
+
+    <!-- Botón crear usuario -->
+    <a href="/crear_usuario" class="bg-green-600 px-4 py-2 rounded-lg">
+        Crear usuario
+    </a>
+    <!-- Redirige al formulario para crear usuarios -->
+
+    <!-- Botón crear rol -->
+    <a href="/crear_rol" class="bg-purple-600 px-4 py-2 rounded-lg">
+        Crear rol
+    </a>
+    <!-- Redirige al formulario para crear roles -->
+
+</div>
+
+</body>
+</html>
